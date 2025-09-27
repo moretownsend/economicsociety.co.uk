@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Global Markets Ticker</title>
+<title>Economics Society Market Ticker</title>
 <style>
   body { margin:0; background:#111; font-family:Arial, sans-serif; }
   #ticker-container {
@@ -22,8 +22,13 @@
   }
   #ticker span {
     display: inline-block;
-    padding: 0 3rem;
+    padding: 0 2rem;
     font-weight: bold;
+  }
+  #ticker span.separator::after {
+    content: " |";
+    padding-left: 1rem;
+    color: #888;
   }
   @keyframes scroll {
     0% { transform: translateX(100%); }
@@ -38,25 +43,38 @@
 </div>
 
 <script>
-const symbols = ["^GSPC","^DJI","^NDX","^FTSE","^GDAXI","EURUSD=X","GBPUSD=X","GC=F","CL=F","BTC-USD"];
+const symbols = [
+  { symbol: "SPX", name: "S&P 500" },
+  { symbol: "DJI", name: "Dow Jones" },
+  { symbol: "NDX", name: "Nasdaq 100" },
+  { symbol: "FTSE", name: "FTSE 100" },
+  { symbol: "DAX", name: "DAX" },
+  { symbol: "EUR/USD", name: "EUR/USD" },
+  { symbol: "GBP/USD", name: "GBP/USD" },
+  { symbol: "XAU/USD", name: "Gold" },
+  { symbol: "WTI", name: "Oil WTI" },
+  { symbol: "BTC/USD", name: "Bitcoin" }
+];
+
 const ticker = document.getElementById("ticker");
+const apiKey = "076bea3db7e5401081c46931a053c55a";
 
 async function fetchPrices() {
   try {
-    // Yahoo Finance API URL
-    const yahooUrl = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=' + symbols.join(",");
-    // Use AllOrigins CORS proxy
-    const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(yahooUrl);
-
-    const response = await fetch(proxyUrl);
+    const url = `https://api.twelvedata.com/price?symbol=${symbols.map(s => s.symbol).join(",")}&apikey=${apiKey}`;
+    const response = await fetch(url);
     const data = await response.json();
-    const quotes = data.quoteResponse.result;
 
-    const tickerItems = quotes.map(q => {
-      const price = q.regularMarketPrice?.toFixed(2) || "N/A";
-      const change = q.regularMarketChange?.toFixed(2) || "0.00";
-      const color = change >= 0 ? "#0f0" : "#f00"; // green for up, red for down
-      return `<span style="color:${color}">${q.symbol}: ${price} (${change})</span>`;
+    if (data.status === "error") {
+      ticker.innerHTML = "Error loading market data…";
+      console.error(data);
+      return;
+    }
+
+    const tickerItems = symbols.map(s => {
+      const price = data[s.symbol]?.price || "N/A";
+      const color = parseFloat(price) >= 0 ? "#0f0" : "#f00"; // green/red
+      return `<span class="separator" style="color:${color}">${s.name}: ${price}</span>`;
     });
 
     ticker.innerHTML = tickerItems.join("");
@@ -66,7 +84,7 @@ async function fetchPrices() {
   }
 }
 
-// Fetch initially and update every 60 seconds
+// Initial fetch and refresh every 60 seconds
 fetchPrices();
 setInterval(fetchPrices, 60000);
 </script>
