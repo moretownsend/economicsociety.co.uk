@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Markets Ticker</title>
+<style>
+  body { margin:0; background:#111; font-family:sans-serif; }
+  #ticker-container {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #111;
+    border-top: 2px solid #444;
+    border-bottom: 2px solid #444;
+    padding: 10px 0;
+    box-sizing: border-box;
+  }
+  #ticker {
+    display: inline-block;
+    animation: scroll 30s linear infinite;
+  }
+  #ticker span {
+    display: inline-block;
+    padding: 0 3rem;
+    color: #0f0; /* green text like finance tickers */
+    font-weight: bold;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+</style>
+</head>
+<body>
+
+<div id="ticker-container">
+  <div id="ticker">Loading market data…</div>
+</div>
+
+<script>
+const symbols = ["^GSPC","^DJI","^NDX","^FTSE","^GDAXI","EURUSD=X","GBPUSD=X","GC=F","CL=F","BTC-USD"];
+const ticker = document.getElementById("ticker");
+
+async function fetchPrices() {
+  const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols.join(",")}`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const quotes = data.quoteResponse.result;
+    const tickerItems = quotes.map(q => {
+      const price = q.regularMarketPrice?.toFixed(2) || "N/A";
+      const change = q.regularMarketChange?.toFixed(2) || "0.00";
+      const color = change >= 0 ? "#0f0" : "#f00"; // green for up, red for down
+      return `<span style="color:${color}">${q.symbol}: ${price} (${change})</span>`;
+    });
+    ticker.innerHTML = tickerItems.join("");
+  } catch (err) {
+    ticker.innerHTML = "Error loading market data…";
+    console.error(err);
+  }
+}
+
+// Initial fetch and update every 60 seconds
+fetchPrices();
+setInterval(fetchPrices, 60000);
+</script>
+
+</body>
+</html>
