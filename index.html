@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Global Markets Ticker</title>
 <style>
-  body { margin:0; background:#111; font-family:sans-serif; }
+  body { margin:0; background:#111; font-family:Arial, sans-serif; }
   #ticker-container {
     width: 100%;
     overflow: hidden;
@@ -23,7 +23,6 @@
   #ticker span {
     display: inline-block;
     padding: 0 3rem;
-    color: #0f0; /* green text like finance tickers */
     font-weight: bold;
   }
   @keyframes scroll {
@@ -43,17 +42,23 @@ const symbols = ["^GSPC","^DJI","^NDX","^FTSE","^GDAXI","EURUSD=X","GBPUSD=X","G
 const ticker = document.getElementById("ticker");
 
 async function fetchPrices() {
-  const url = `https://query1.finance.yahoo.com/v7/finance/quote?symbols=${symbols.join(",")}`;
   try {
-    const response = await fetch(url);
+    // Yahoo Finance API URL
+    const yahooUrl = 'https://query1.finance.yahoo.com/v7/finance/quote?symbols=' + symbols.join(",");
+    // Use AllOrigins CORS proxy
+    const proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(yahooUrl);
+
+    const response = await fetch(proxyUrl);
     const data = await response.json();
     const quotes = data.quoteResponse.result;
+
     const tickerItems = quotes.map(q => {
       const price = q.regularMarketPrice?.toFixed(2) || "N/A";
       const change = q.regularMarketChange?.toFixed(2) || "0.00";
       const color = change >= 0 ? "#0f0" : "#f00"; // green for up, red for down
       return `<span style="color:${color}">${q.symbol}: ${price} (${change})</span>`;
     });
+
     ticker.innerHTML = tickerItems.join("");
   } catch (err) {
     ticker.innerHTML = "Error loading market data…";
@@ -61,7 +66,7 @@ async function fetchPrices() {
   }
 }
 
-// Initial fetch and update every 60 seconds
+// Fetch initially and update every 60 seconds
 fetchPrices();
 setInterval(fetchPrices, 60000);
 </script>
