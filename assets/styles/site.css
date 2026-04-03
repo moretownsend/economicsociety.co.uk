@@ -144,16 +144,6 @@ img {
   box-shadow: var(--shadow);
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: auto -10% -35% auto;
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(199, 154, 43, 0.32) 0%, rgba(199, 154, 43, 0) 72%);
-}
-
 .hero__inner {
   position: relative;
   z-index: 1;

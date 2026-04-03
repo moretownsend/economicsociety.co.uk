@@ -52,6 +52,7 @@
 }
 
 .course-card h3,
+.route-card h2,
 .video-card h3 {
   margin: 0;
   font-family: "Playfair Display", Georgia, serif;
@@ -88,6 +89,17 @@
   border: 0;
 }
 
+.video-frame--document {
+  aspect-ratio: 4 / 5;
+  background: linear-gradient(180deg, #f9f5ed, #efe4cf);
+}
+
+.video-card--document h3,
+.note-card--empty h3 {
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
 .lecture-list {
   margin: 0;
   padding-left: 1.2rem;
@@ -101,11 +113,6 @@
   padding: 1rem 1.2rem;
   color: var(--ink-soft);
   margin-bottom: 1rem;
-}
-
-.inline-link {
-  color: #fff;
-  text-decoration: underline;
 }
 
 @media (max-width: 900px) {
