@@ -1,93 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Economics Society Market Ticker</title>
-<style>
-  body { margin:0; background:#111; font-family:Arial, sans-serif; }
-  #ticker-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    background: #111;
-    border-top: 2px solid #444;
-    border-bottom: 2px solid #444;
-    padding: 10px 0;
-    box-sizing: border-box;
-  }
-  #ticker {
-    display: inline-block;
-    animation: scroll 30s linear infinite;
-  }
-  #ticker span {
-    display: inline-block;
-    padding: 0 2rem;
-    font-weight: bold;
-  }
-  #ticker span.separator::after {
-    content: " |";
-    padding-left: 1rem;
-    color: #888;
-  }
-  @keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Economics Society | University of Kent</title>
+  <meta name="description" content="A coded rebuild of the Economics Society website with dedicated pages for economics materials, University of Kent support, and wider learning resources.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles/site.css">
 </head>
 <body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="site-header__inner">
+        <a class="brand" href="./">
+          <img src="Economics_Society_Design_in_Contrast-removebg-preview.png" alt="Economics Society logo">
+          <span class="brand__text">
+            <span class="brand__kicker">University of Kent</span>
+            <span class="brand__title">Economics Society</span>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation">☰</button>
+        <nav class="site-nav" data-site-nav>
+          <a href="./" aria-current="page">Home</a>
+          <a href="economics/">Economics</a>
+          <a href="university-of-kent/">University of Kent</a>
+          <a href="resources/">Resources</a>
+        </nav>
+      </div>
+    </header>
 
-<div id="ticker-container">
-  <div id="ticker">Loading market data…</div>
-</div>
+    <main class="site-main">
+      <section class="hero">
+        <div class="hero__inner">
+          <div>
+            <p class="hero__eyebrow">Rebuilt Beyond Google Sites</p>
+            <h1>Economics resources with room to grow.</h1>
+            <p>This version keeps the current Economics Society information architecture while moving the site into a codebase that is easier to maintain, style, and expand with richer interactions over time.</p>
+            <div class="hero__actions">
+              <a class="button" href="economics/">Explore Economics</a>
+              <a class="button--ghost" href="university-of-kent/">Browse Kent Modules</a>
+            </div>
+          </div>
+          <aside class="hero__panel">
+            <img src="Economics_Society_Design_in_Contrast-removebg-preview.png" alt="Economics Society mark">
+            <dl>
+              <div>
+                <dt>Current Scope</dt>
+                <dd>Home, Economics, University of Kent, Resources, and policy pages with a folder-per-page structure.</dd>
+              </div>
+              <div>
+                <dt>Migration Status</dt>
+                <dd>The live Google Sites route map has been captured so deeper readings and module pages can be brought across in stages.</dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
 
-<script>
-const symbols = [
-  { symbol: "SPX", name: "S&P 500" },
-  { symbol: "DJI", name: "Dow Jones" },
-  { symbol: "NDX", name: "Nasdaq 100" },
-  { symbol: "FTSE", name: "FTSE 100" },
-  { symbol: "DAX", name: "DAX" },
-  { symbol: "EUR/USD", name: "EUR/USD" },
-  { symbol: "GBP/USD", name: "GBP/USD" },
-  { symbol: "XAU/USD", name: "Gold" },
-  { symbol: "WTI", name: "Oil WTI" },
-  { symbol: "BTC/USD", name: "Bitcoin" }
-];
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <p class="section__eyebrow">Main Sections</p>
+            <h2>Built around the same top-level structure.</h2>
+          </div>
+          <p class="section__intro">The current live site is organized around Economics, University of Kent material, and broader Resources. This coded version keeps that logic, but makes the design and future content model much more flexible.</p>
+        </div>
+        <div class="grid grid--3">
+          <article class="card">
+            <h3>Economics</h3>
+            <p>Undergraduate, postgraduate, and adjacent-course material pulled from the current site structure.</p>
+            <ul>
+              <li>Undergraduate years 1 to 3</li>
+              <li>Postgraduate reading pathways</li>
+              <li>Adjacent courses across finance, maths, policy, and media</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>University of Kent</h3>
+            <p>Stage-based module support for Kent economics students, grouped to match the current site hierarchy.</p>
+            <ul>
+              <li>Stage 1 foundations</li>
+              <li>Stage 2 core modules</li>
+              <li>Stage 3 advanced papers and dissertation support</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Resources</h3>
+            <p>External libraries, open courseware, data sources, and reference material that already appear on the live site.</p>
+            <ul>
+              <li>Open learning platforms</li>
+              <li>Economics journals and datasets</li>
+              <li>Reference and methods tools</li>
+            </ul>
+          </article>
+        </div>
+      </section>
 
-const ticker = document.getElementById("ticker");
-const apiKey = "076bea3db7e5401081c46931a053c55a";
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <p class="section__eyebrow">Route Map</p>
+            <h2>The migration is already grounded in the live site.</h2>
+          </div>
+          <p class="section__intro">I’ve pulled the current Google Sites route structure so we can recreate the same content paths in code rather than redesigning blind.</p>
+        </div>
+        <div class="stats">
+          <article class="stat">
+            <strong>46</strong>
+            <span>Economics routes surfaced from the live site homepage</span>
+          </article>
+          <article class="stat">
+            <strong>101</strong>
+            <span>University of Kent routes surfaced from the live site homepage</span>
+          </article>
+          <article class="stat">
+            <strong>74</strong>
+            <span>External links already visible on the live homepage</span>
+          </article>
+        </div>
+      </section>
 
-async function fetchPrices() {
-  try {
-    const url = `https://api.twelvedata.com/price?symbol=${symbols.map(s => s.symbol).join(",")}&apikey=${apiKey}`;
-    const response = await fetch(url);
-    const data = await response.json();
+      <section class="split-callout">
+        <article class="callout">
+          <h3>Next migration step</h3>
+          <p>Once you share the Google Drive links for the readings, this structure is ready for richer course pages, searchable reading lists, and cleaner navigation than Google Sites allows.</p>
+        </article>
+        <article class="list-card">
+          <h3>Why this structure</h3>
+          <p>Each main page now lives in its own folder, which keeps the project GitHub Pages friendly and makes it straightforward to expand into a larger academic archive later.</p>
+          <div class="route-card__meta">
+            <span class="route-tag">/economics/</span>
+            <span class="route-tag">/university-of-kent/</span>
+            <span class="route-tag">/resources/</span>
+          </div>
+        </article>
+      </section>
+    </main>
 
-    if (data.status === "error") {
-      ticker.innerHTML = "Error loading market data…";
-      console.error(data);
-      return;
-    }
-
-    const tickerItems = symbols.map(s => {
-      const price = data[s.symbol]?.price || "N/A";
-      const color = parseFloat(price) >= 0 ? "#0f0" : "#f00"; // green/red
-      return `<span class="separator" style="color:${color}">${s.name}: ${price}</span>`;
-    });
-
-    ticker.innerHTML = tickerItems.join("");
-  } catch (err) {
-    ticker.innerHTML = "Error loading market data…";
-    console.error(err);
-  }
-}
-
-// Initial fetch and refresh every 60 seconds
-fetchPrices();
-setInterval(fetchPrices, 60000);
-</script>
-
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <p class="footer-note">Economics Society, University of Kent. <span data-current-year></span>.</p>
+        <div class="footer-links">
+          <a href="data-protection/terms-of-use/">Terms of Use</a>
+          <a href="data-protection/privacy-policy/">Privacy Policy</a>
+          <a href="mailto:mtmorgantownsend@gmail.com">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/scripts/site.js"></script>
 </body>
 </html>
