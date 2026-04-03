@@ -4,142 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Economics | Economics Society</title>
-  <meta name="description" content="Economics route map rebuilt from the current Economics Society website structure.">
+  <meta name="description" content="Economics course library rebuilt from the current Economics Society site.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/styles/site.css">
+  <link rel="stylesheet" href="../assets/styles/courses.css">
 </head>
 <body>
   <div class="site-shell">
     <header class="site-header">
-      <div class="site-header__inner">
-        <a class="brand" href="../">
-          <img src="../Economics_Society_Design_in_Contrast-removebg-preview.png" alt="Economics Society logo">
-          <span class="brand__text">
-            <span class="brand__kicker">University of Kent</span>
-            <span class="brand__title">Economics Society</span>
-          </span>
-        </a>
-        <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation">☰</button>
-        <nav class="site-nav" data-site-nav>
-          <a href="../">Home</a>
-          <a href="./" aria-current="page">Economics</a>
-          <a href="../university-of-kent/">University of Kent</a>
-          <a href="../resources/">Resources</a>
-        </nav>
-      </div>
-    </header>
+  <div class="site-header__inner">
+    <a class="brand" href="../">
+      <img src="../Economics_Society_Design_in_Contrast-removebg-preview.png" alt="Economics Society logo">
+      <span class="brand__text">
+        <span class="brand__kicker">University of Kent</span>
+        <span class="brand__title">Economics Society</span>
+      </span>
+    </a>
+    <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-label="Toggle navigation">☰</button>
+    <nav class="site-nav" data-site-nav>
+      <a href="../">Home</a>
+      <a href="../economics/" aria-current="page">Economics</a>
+      <a href="../university-of-kent/">University of Kent</a>
+      <a href="../resources/">Resources</a>
+    </nav>
+  </div>
+</header>
 
     <main class="site-main">
-      <section class="page-header">
-        <div>
-          <p class="section__eyebrow">Route Map</p>
-          <h1>Economics</h1>
-          <p>This page captures the current live structure for economics-focused material on the site, grouped into undergraduate, postgraduate, and adjacent-course areas so the detailed content can be migrated progressively.</p>
-        </div>
-        <aside class="page-header__panel">
-          <dl>
-            <div>
-              <dt>Live structure detected</dt>
-              <dd>Undergraduate, postgraduate, and adjacent-course sections are all currently present on the live site.</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
+      <section class="page-header course-header">
+  <div>
+    <p class="section__eyebrow">Economics</p>
+    <h1>Course library</h1>
+    <p>The Economics section now branches into Undergraduate, Postgraduate, and Adjacent Courses pages, with individual folders for each course currently listed on the live site.</p>
+  </div>
+  <aside class="page-header__panel">
+    <ul>
+      <li>Undergraduate</li>
+      <li>Postgraduate</li>
+      <li>Adjacent Courses</li>
+    </ul>
+  </aside>
+</section>
+<section class="grid grid--3">
+  <article class="route-card">
+  <h3><a href="./undergraduate/">Undergraduate Economics</a></h3>
+  <p>First, second, and third year economics modules, rebuilt into coded course pages with lecture embeds pulled from the current live site where they were detected.</p>
+  <div class="route-card__meta"><span class="route-tag">13 courses</span></div>
+</article>
+<article class="route-card">
+  <h3><a href="./postgraduate/">Post-Graduate Economics</a></h3>
+  <p>Postgraduate economics pages, preserving the current live route structure and embedding the videos that were actually detected on those pages.</p>
+  <div class="route-card__meta"><span class="route-tag">2 courses</span></div>
+</article>
+<article class="route-card">
+  <h3><a href="./adjacent-courses/">Adjacent Courses</a></h3>
+  <p>Cross-disciplinary material from finance, statistics, computing, management, history, politics, film, policy, and poker that already appears under the current Economics section.</p>
+  <div class="route-card__meta"><span class="route-tag">30 courses</span></div>
+</article>
 
-      <section class="grid grid--3">
-        <article class="route-card">
-          <h3>Undergraduate</h3>
-          <p>Current live routes identified under the undergraduate hierarchy.</p>
-          <ul class="route-list">
-            <li>Year 1: Principles of Microeconomics</li>
-            <li>Year 1: Principles of Macroeconomics</li>
-            <li>Year 1: Game Theory</li>
-            <li>Year 2: Intermediate Microeconomics</li>
-            <li>Year 2: Intermediate Macroeconomics</li>
-            <li>Year 2: Psychology & Economics</li>
-            <li>Year 3: Political Economy & Economic Development</li>
-            <li>Year 3: International Trade</li>
-            <li>Year 3: Development Economics (Townsend)</li>
-            <li>Year 3: Development Economics (Duflo)</li>
-            <li>Year 3: The Challenge of World Poverty</li>
-            <li>Year 3: Public Economics</li>
-          </ul>
-        </article>
+</section>
 
-        <article class="route-card">
-          <h3>Postgraduate</h3>
-          <p>Postgraduate routes currently exposed from the live site.</p>
-          <ul class="route-list">
-            <li>Economic Growth</li>
-            <li>Political Economy</li>
-          </ul>
-        </article>
-
-        <article class="route-card">
-          <h3>Adjacent Courses</h3>
-          <p>Cross-disciplinary content already present on the site.</p>
-          <ul class="route-list">
-            <li>Finance</li>
-            <li>Statistics & Data</li>
-            <li>Code & Machine Learning</li>
-            <li>Business & Management</li>
-            <li>Sociology & History</li>
-            <li>Politics & Philosophy</li>
-            <li>Film & Media</li>
-            <li>Policy</li>
-            <li>Poker</li>
-          </ul>
-        </article>
-      </section>
-
-      <section class="section">
-        <div class="section__head">
-          <div>
-            <p class="section__eyebrow">Sample Routes</p>
-            <h2>Examples already mapped from the live site.</h2>
-          </div>
-          <p class="section__intro">These are exact route names surfaced from the current domain, which gives us a reliable migration checklist instead of guessing the curriculum layout.</p>
-        </div>
-        <div class="grid grid--2">
-          <article class="list-card">
-            <h3>Finance and Quant Routes</h3>
-            <ul class="route-list">
-              <li>Financial Theory</li>
-              <li>Financial Markets</li>
-              <li>Finance Theory</li>
-              <li>Topics in Mathematics with Applications in Finance</li>
-              <li>Fintech: Shaping the Financial World</li>
-              <li>Discrete Stochastic Processes</li>
-              <li>Risk Decision Analysis</li>
-            </ul>
-          </article>
-          <article class="list-card">
-            <h3>Broader Elective Routes</h3>
-            <ul class="route-list">
-              <li>Political Philosophy</li>
-              <li>Foundations of Politics</li>
-              <li>The Film Experience</li>
-              <li>Philosophy of Film</li>
-              <li>European Civilisations</li>
-              <li>Epidemics in Western Society</li>
-              <li>Introduction to Environmental Policy</li>
-            </ul>
-          </article>
-        </div>
-      </section>
     </main>
-
     <footer class="site-footer">
-      <div class="site-footer__inner">
-        <p class="footer-note">Economics Society, University of Kent. <span data-current-year></span>.</p>
-        <div class="footer-links">
-          <a href="../data-protection/terms-of-use/">Terms of Use</a>
-          <a href="../data-protection/privacy-policy/">Privacy Policy</a>
-        </div>
-      </div>
-    </footer>
+  <div class="site-footer__inner">
+    <p class="footer-note">Economics Society, University of Kent. <span data-current-year></span>.</p>
+    <div class="footer-links">
+      <a href="../data-protection/terms-of-use/">Terms of Use</a>
+      <a href="../data-protection/privacy-policy/">Privacy Policy</a>
+      <a href="../data-protection/cookie-policy/">Cookie Policy</a>
+    </div>
+  </div>
+</footer>
+
   </div>
   <script src="../assets/scripts/site.js"></script>
 </body>

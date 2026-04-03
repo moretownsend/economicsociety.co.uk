@@ -1,0 +1,116 @@
+.breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-bottom: 1.2rem;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+.breadcrumbs a {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.crumb-sep {
+  color: rgba(19, 34, 56, 0.35);
+}
+
+.course-header {
+  margin-bottom: 1.8rem;
+}
+
+.course-card-grid,
+.video-grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.course-card-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.course-card,
+.video-card,
+.note-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(19, 34, 56, 0.1);
+  border-radius: 24px;
+  box-shadow: 0 22px 50px rgba(14, 40, 70, 0.1);
+}
+
+.course-card {
+  padding: 1.4rem;
+}
+
+.course-card__eyebrow {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.course-card h3,
+.video-card h3 {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  color: var(--accent-deep);
+}
+
+.course-card p {
+  margin: 0.7rem 0 0;
+  color: var(--ink-soft);
+}
+
+.video-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.video-card {
+  overflow: hidden;
+}
+
+.video-card h3 {
+  padding: 1rem 1.1rem 1.2rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+
+.video-frame {
+  aspect-ratio: 16 / 9;
+  background: #0e2846;
+}
+
+.video-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.lecture-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  display: grid;
+  gap: 0.75rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+.note-card {
+  padding: 1rem 1.2rem;
+  color: var(--ink-soft);
+  margin-bottom: 1rem;
+}
+
+.inline-link {
+  color: #fff;
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .course-card-grid,
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+}
